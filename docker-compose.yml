@@ -1,0 +1,17 @@
+version: '3'
+
+services :
+    anaconda:
+      container_name: anaconda3
+      build: .
+      volumes:
+        - ${LOCAL_PATH_NOTEBOOK}:/opt/notebooks
+      ports:
+        - "8888:8888"
+        - "27017:27017"
+      stdin_open: true
+      tty: true
+
+networks:
+  default:
+    driver: bridge
